@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ARISE — AI Infrastructure Simulation Tutorial | HiPC 2026</title>
+<meta name="description" content="ARISE: AI Research through Infrastructure Simulation and Evaluation — a tutorial at HiPC 2026 on simulation-driven methodologies for next-generation AI infrastructure." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <nav class="navbar">
+    <a class="brand" href="#top">
+      <span class="brand-mark">ARISE</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#topics" class="nav-link">Topics</a></li>
+      <li><a href="#schedule" class="nav-link">Schedule</a></li>
+      <li><a href="#presenters" class="nav-link">Presenters</a></li>
+      <li><a href="#prerequisites" class="nav-link">Prerequisites</a></li>
+      <li><a href="#resources" class="nav-link">Resources</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-content">
+      <p class="eyebrow">HiPC 2026 Tutorial</p>
+      <h1>ARISE</h1>
+      <p class="hero-subtitle">AI Research through Infrastructure Simulation and Evaluation</p>
+      <p class="hero-tagline">A hands-on tutorial on simulation-driven methodologies for designing and evaluating next-generation AI infrastructure — communication fabrics, memory systems, and large-scale distributed training &amp; inference.</p>
+      <div class="hero-actions">
+        <a href="#schedule" class="btn btn-primary">View Schedule</a>
+        <a href="#presenters" class="btn btn-ghost">Meet the Presenters</a>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Format</span>
+          <span class="hero-meta-value">Hands-on Tutorial</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Focus</span>
+          <span class="hero-meta-value">Astra-Sim &amp; AI Fabrics</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <p class="section-eyebrow">Abstract</p>
+      <h2 class="section-title">Why this tutorial matters</h2>
+      <p class="lead">
+        The rapid growth of foundation models and large-scale AI systems has transformed modern computing
+        infrastructure. As model sizes and cluster scales continue to grow, system performance is increasingly
+        constrained not by compute alone, but by communication, memory capacity, memory bandwidth, collective
+        operations, and interconnect fabrics. Emerging technologies such as Ultra Ethernet, InfiniBand, NVLink,
+        UALink, CXL-based memory expansion, and memory-semantic fabrics are redefining the architecture of AI
+        clusters and introducing new research challenges spanning systems, networking, and computer architecture.
+      </p>
+      <p class="lead">
+        This tutorial introduces simulation-driven methodologies for studying and designing next-generation AI
+        infrastructure. Participants will learn the fundamentals of distributed AI training and inference,
+        understand the role of communication and memory bottlenecks, and gain hands-on experience using
+        Astra-Sim and related simulation frameworks. The tutorial further covers emerging research directions in
+        AI fabrics, memory disaggregation, large-scale model serving, and memory-semantic networking.
+      </p>
+      <p class="lead">
+        The tutorial combines conceptual foundations, practical demonstrations, and guided hands-on exercises,
+        enabling researchers and practitioners to evaluate AI infrastructure designs without requiring access to
+        expensive production-scale clusters.
+      </p>
+
+      <div class="two-col">
+        <div class="card soft-card">
+          <h3>Objectives</h3>
+          <ul class="check-list">
+            <li>Introduce the architecture of modern AI infrastructure.</li>
+            <li>Explain communication and memory bottlenecks in large-scale AI systems.</li>
+            <li>Provide hands-on experience using Astra-Sim and LLM-Serving-Sim for modeling AI workloads.</li>
+            <li>Discuss emerging research opportunities in memory-semantic fabrics, AI networking, and disaggregated AI infrastructure, and demonstrate how simulation can be used for such research problems.</li>
+          </ul>
+        </div>
+        <div class="card soft-card" id="prerequisites">
+          <h3>Intended Audience</h3>
+          <ul class="check-list">
+            <li>Graduate students and researchers in HPC, systems, networking, and computer architecture.</li>
+            <li>Industry practitioners working on AI infrastructure and large-scale training and inference.</li>
+          </ul>
+          <h3 class="mt">Prerequisites &amp; Level</h3>
+          <ul class="check-list">
+            <li>Basic computer architecture</li>
+            <li>Basic networking concepts</li>
+            <li>Familiarity with Linux</li>
+            <li><em>No prior experience with AI infrastructure simulators is required.</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOPICS -->
+  <section id="topics" class="section section-alt">
+    <div class="container">
+      <p class="section-eyebrow">Tutorial Topics</p>
+      <h2 class="section-title">Four parts, one design space</h2>
+      <div class="topics-grid">
+        <div class="card topic-card">
+          <span class="topic-index">Part I</span>
+          <h3>AI Research Using Simulation Tools</h3>
+          <ul>
+            <li>Why simulation-driven research matters for AI infrastructure</li>
+            <li>Overview of Astra-Sim and related simulation frameworks</li>
+            <li>Motivating case studies from industry-scale AI clusters</li>
+          </ul>
+        </div>
+        <div class="card topic-card">
+          <span class="topic-index">Part II</span>
+          <h3>Foundations Recap: Collectives &amp; Parallelization</h3>
+          <ul>
+            <li>Data, Tensor, Pipeline, and Expert Parallelism</li>
+            <li>Collective communication primitives</li>
+            <li>AI communication fabrics: InfiniBand, Ultra Ethernet, NVLink / UALink, RDMA</li>
+          </ul>
+        </div>
+        <div class="card topic-card">
+          <span class="topic-index">Part III</span>
+          <h3>Hands-on: Fabric Performance Evaluation, UET vs RoCEv2</h3>
+          <ul>
+            <li>Model scale-up/scale-out AI cluster topologies under UET and RoCEv2 transports</li>
+            <li>Measure and compare collective communication latency, throughput, and congestion behavior</li>
+            <li>Discuss trade-offs for next-generation AI fabric design choices</li>
+          </ul>
+        </div>
+        <div class="card topic-card">
+          <span class="topic-index">Part IV</span>
+          <h3>Research Directions in AI Infrastructure</h3>
+          <ul>
+            <li>Emerging research opportunities in memory-semantic fabrics and AI networking</li>
+            <li>Distributed AI systems and industry perspectives</li>
+            <li>Open problems in disaggregated AI infrastructure</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section id="schedule" class="section">
+    <div class="container">
+      <p class="section-eyebrow">Tutorial Schedule</p>
+      <h2 class="section-title">Agenda</h2>
+      <p class="lead">Times shown are approximate and subject to final confirmation. Additional presenters may be included depending on the final tutorial team composition.</p>
+
+      <div class="schedule-table-wrap">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Topic</th>
+              <th>Presenter(s)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="time-cell">09:00 – 09:30</td>
+              <td>AI Research Using Simulation Tools</td>
+              <td>Abed Mohammad Kamaluddin (Marvell)</td>
+            </tr>
+            <tr>
+              <td class="time-cell">09:30 – 09:40</td>
+              <td>Quick Recap: Collectives &amp; Parallelization Strategies</td>
+              <td>Ramanjeet Singh (Marvell), Sriram Vatala (Marvell)</td>
+            </tr>
+            <tr>
+              <td class="time-cell">09:40 – 10:30</td>
+              <td>
+                <strong>Hands-on: Fabric Performance Evaluation — UET vs RoCEv2</strong>
+                <ul class="table-sublist">
+                  <li>Model scale-up/scale-out AI cluster topologies under Ultra Ethernet (UET) and RoCEv2 transports</li>
+                  <li>Measure and compare collective communication latency, throughput, and congestion behavior</li>
+                  <li>Discuss trade-offs for next-generation AI fabric design choices</li>
+                </ul>
+              </td>
+              <td>Ramanjeet Singh (Marvell), Sriram Vatala (Marvell), Hemant (Marvell)</td>
+            </tr>
+            <tr>
+              <td class="time-cell">10:30 – 11:00</td>
+              <td>Research Talk</td>
+              <td>Rinku Shah (IIIT-Delhi)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Additional presenters may be included depending on the final tutorial team composition.</p>
+    </div>
+  </section>
+
+  <!-- PRESENTERS -->
+  <section id="presenters" class="section section-alt">
+    <div class="container">
+      <p class="section-eyebrow">Tutorial Presenters</p>
+      <h2 class="section-title">Meet the Team</h2>
+
+      <div class="presenters-grid">
+        <article class="card presenter-card">
+          <div class="avatar" aria-hidden="true">RS</div>
+          <h3>Rinku Shah</h3>
+          <p class="presenter-role">Assistant Professor, IIIT-Delhi</p>
+          <p class="presenter-bio">
+            Rinku is currently an Assistant Professor in the CSE department at Indraprastha Institute of
+            Information Technology, Delhi (IIITD). She earned her PhD from IIT Bombay in February 2021. Her
+            research interests span computer networks, distributed systems, AI infrastructure, programmable
+            networking, cloud computing, and security. She is particularly interested in designing abstractions
+            and architectures for flexible, high-performance, and secure networking solutions that meet the needs
+            of next-generation distributed systems. She has published her research at reputed conference venues
+            such as ACM CoNEXT, IEEE ICNP, IEEE/IFIP DSN, ACM SOSR, and IEEE/IFIP Networking.
+          </p>
+        </article>
+
+        <article class="card presenter-card">
+          <div class="avatar" aria-hidden="true">AK</div>
+          <h3>Abed Mohammad Kamaluddin</h3>
+          <p class="presenter-role">Director, Marvell Technology</p>
+          <p class="presenter-bio">
+            Abed Mohammad Kamaluddin is a Director at Marvell Technology, where he drives solution and platform
+            initiatives for next-generation AI infrastructure, networking, and memory-semantic fabrics. He has
+            extensive experience in large-scale systems, networking, AI fabrics, distributed AI infrastructure,
+            and semiconductor platforms. He has played a leading role in industry-academia collaborations focused
+            on AI systems and networking, including co-developing and co-teaching advanced courses on Networks
+            for AI/ML Systems. He is actively involved in community-building efforts around AI infrastructure and
+            serves on the organizing teams of emerging workshops focused on AI fabrics, memory-semantic
+            networking, and large-scale AI systems research.
+          </p>
+        </article>
+      </div>
+
+      <div class="presenters-grid presenters-grid-secondary presenters-grid-trio">
+        <article class="card presenter-card presenter-card-compact">
+          <div class="avatar avatar-sm" aria-hidden="true">SV</div>
+          <div>
+            <h3>Sriram Vatala</h3>
+            <p class="presenter-role">Senior Staff Engineer, Marvell Technology</p>
+            <p class="presenter-bio">Sriram Vatala is a Senior Staff Engineer at Marvell Technology with 9 years of industry experience in user-space packet processing, dataplane, and IPSec systems, with a focus on high-performance networking software for AI infrastructure.</p>
+          </div>
+        </article>
+        <article class="card presenter-card presenter-card-compact">
+          <div class="avatar avatar-sm" aria-hidden="true">RS</div>
+          <div>
+            <h3>Ramanjeet Singh</h3>
+            <p class="presenter-role">Software Engineer, Marvell Technology</p>
+            <p class="presenter-bio">Ramanjeet Singh is a Software Engineer at Marvell Technology with about 2 years of industry experience. He holds an undergraduate degree from IIIT-Delhi and works on AI infrastructure and networking systems.</p>
+          </div>
+        </article>
+        <article class="card presenter-card presenter-card-compact">
+          <div class="avatar avatar-sm" aria-hidden="true">H</div>
+          <div>
+            <h3>Hemant</h3>
+            <p class="presenter-role">Senior Engineer, Marvell Technology</p>
+            <p class="presenter-bio">Hemant is a Senior Engineer at Marvell Technology with about 2 years of industry experience. He holds a postgraduate degree from BITS Pilani and works on AI infrastructure and networking systems.</p>
+          </div>
+        </article>
+      </div>
+      <p class="note">Additional presenters may be included depending on the final tutorial team composition.</p>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section id="resources" class="section">
+    <div class="container">
+      <p class="section-eyebrow">Tutorial Website</p>
+      <h2 class="section-title">Materials &amp; Resources</h2>
+      <p class="lead">
+        Upon acceptance, this site will host the full set of tutorial materials below. All materials will remain
+        publicly available after the conference to maximize community impact.
+      </p>
+      <div class="resources-grid">
+        <div class="card resource-card">
+          <div class="resource-icon">📽️</div>
+          <h3>Slides</h3>
+          <p>Presentation decks for all three parts of the tutorial.</p>
+          <span class="badge badge-muted">Coming soon</span>
+        </div>
+        <div class="card resource-card">
+          <div class="resource-icon">🧪</div>
+          <h3>Hands-on Lab Guides</h3>
+          <p>Step-by-step guides for the Astra-Sim hands-on sessions.</p>
+          <span class="badge badge-muted">Coming soon</span>
+        </div>
+        <div class="card resource-card">
+          <div class="resource-icon">⚙️</div>
+          <h3>Software Setup</h3>
+          <p>Installation and environment setup instructions for the simulators.</p>
+          <span class="badge badge-muted">Coming soon</span>
+        </div>
+        <div class="card resource-card">
+          <div class="resource-icon">📚</div>
+          <h3>References &amp; Datasets</h3>
+          <p>Reference readings and datasets used throughout the tutorial.</p>
+          <span class="badge badge-muted">Coming soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-content">
+    <div>
+      <span class="brand-mark small">ARISE</span>
+      <p class="footer-text">AI Research through Infrastructure Simulation and Evaluation</p>
+      <p class="footer-text muted">A Tutorial at HiPC 2026</p>
+    </div>
+    <div class="footer-text muted">
+      &copy; <span id="year"></span> ARISE Tutorial Presenters. Built for GitHub Pages.
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
