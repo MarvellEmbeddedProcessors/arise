@@ -431,6 +431,12 @@ li {
   font-variant-numeric: tabular-nums;
 }
 
+.time-tbd {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
 .break-row td {
   background: rgba(139, 92, 246, 0.06);
   font-weight: 600;
